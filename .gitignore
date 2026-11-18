@@ -1,0 +1,26 @@
+# Credenciais locais
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+# Testes e ferramentas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Temporários e logs
+*.log
+*.tmp
+*.swp
+*.bak
