@@ -1,14 +1,33 @@
 """Interface Streamlit do MVP GameHub."""
 
+from pathlib import Path
 from uuid import uuid4
 
 import streamlit as st
+from PIL import Image
 
 from services import carrinho, catalogo, pedidos, recomendacoes, sessao
 
 st.set_page_config(page_title="GameHub", page_icon="🎮", layout="wide")
 st.title("🎮 GameHub")
 st.caption("Loja demonstrativa de jogos digitais")
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+
+def mostrar_imagem(jogo: dict, largura: int = 180) -> None:
+    """Exibe a imagem local indicada por um caminho relativo do projeto."""
+    caminho = jogo.get("imagem_path")
+    if not caminho:
+        return
+    arquivo = (PROJECT_ROOT / caminho).resolve()
+    if not arquivo.is_file():
+        st.caption("Imagem local não encontrada.")
+        return
+    try:
+        with Image.open(arquivo) as imagem:
+            st.image(imagem.copy(), width=largura)
+    except OSError:
+        st.caption("Não foi possível abrir a imagem local.")
 
 try:
     clientes = catalogo.listar_clientes()
@@ -45,8 +64,7 @@ def mostrar_jogo(jogo: dict) -> None:
         st.write(jogo["descricao"])
         st.write(f"**Marca:** {jogo.get('marca', '—')} · **Categorias:** {', '.join(jogo.get('categorias', []))}")
         st.write(f"**Preço:** R$ {float(jogo['preco']):.2f} · **Lançamento:** {jogo.get('ano', '—')}")
-        if jogo.get("imagem_url"):
-            st.image(jogo["imagem_url"], width=180)
+        mostrar_imagem(jogo)
     with coluna_acao:
         if st.button("Adicionar ao carrinho", key=f"add_{jogo['_id']}"):
             try:
@@ -81,7 +99,9 @@ elif pagina == "Carrinho":
             continue
         subtotal = float(jogo["preco"]) * quantidade
         total += subtotal
-        esquerda, meio, direita = st.columns([4, 2, 1])
+        imagem_coluna, esquerda, meio, direita = st.columns([1, 4, 2, 1])
+        with imagem_coluna:
+            mostrar_imagem(jogo, largura=100)
         esquerda.write(f"**{jogo['nome']}** · R$ {float(jogo['preco']):.2f} cada")
         nova_quantidade = meio.number_input(
             "Quantidade", min_value=1, value=quantidade,
@@ -112,8 +132,13 @@ elif pagina == "Recomendações":
     if not jogos:
         st.info("Ainda não há recomendações para este cliente.")
     for jogo in jogos:
-        st.write(f"**{jogo['nome']}** · R$ {float(jogo['preco']):.2f} · relevância {jogo['relevancia']}")
-        if st.button("Adicionar ao carrinho", key=f"rec_{jogo['id']}"):
+        produto = catalogo.obter_jogo(jogo["id"])
+        imagem_coluna, dados_coluna, acao_coluna = st.columns([1, 4, 1])
+        with imagem_coluna:
+            if produto:
+                mostrar_imagem(produto, largura=100)
+        dados_coluna.write(f"**{jogo['nome']}** · R$ {float(jogo['preco']):.2f} · relevância {jogo['relevancia']}")
+        if acao_coluna.button("Adicionar ao carrinho", key=f"rec_{jogo['id']}"):
             try:
                 carrinho.adicionar(selecionado, jogo["id"])
                 st.success("Jogo adicionado.")
@@ -139,7 +164,10 @@ else:
                 if jogo:
                     subtotal = float(jogo["preco"]) * quantidade
                     total += subtotal
-                    st.write(f"{quantidade} × {jogo['nome']} — R$ {subtotal:.2f}")
+                    imagem_coluna, dados_coluna = st.columns([1, 5])
+                    with imagem_coluna:
+                        mostrar_imagem(jogo, largura=100)
+                    dados_coluna.write(f"{quantidade} × {jogo['nome']} — R$ {subtotal:.2f}")
             st.subheader(f"Total: R$ {total:.2f}")
     if (pending or carrinho.obter_itens(selecionado)) and st.button("Confirmar compra"):
         checkout_id = st.session_state.setdefault(checkout_key, str(uuid4()))

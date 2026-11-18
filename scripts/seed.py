@@ -15,75 +15,75 @@ from database.redis_db import get_client as get_redis
 GAMES = [
     {
         "_id": "game-001",
-        "nome": "Ecos de Arvandor",
-        "genero": "RPG",
-        "descricao": "Uma aventura de fantasia sobre alianças e escolhas em um reino antigo.",
-        "marca": "Aurora Forge",
-        "categorias": ["RPG", "Aventura"],
-        "imagem_url": "https://images.example.com/gamehub/ecos-de-arvandor.jpg",
-        "especificacoes": {"plataformas": ["PC"], "jogadores": "1", "idiomas": ["pt-BR", "en"]},
+        "nome": "Grand Theft Auto VI",
+        "genero": "Ação e aventura",
+        "descricao": "Uma aventura de mundo aberto ambientada em Vice City e no estado de Leonida.",
+        "marca": "Rockstar Games",
+        "categorias": ["Ação", "Mundo aberto"],
+        "imagem_path": "images/gta-iv.jpg",
+        "especificacoes": {"plataformas": ["PlayStation 5", "Xbox Series X|S"], "jogadores": "1"},
         "preco": 89.90,
-        "ano": 2023,
+        "ano": 2026,
     },
     {
         "_id": "game-002",
-        "nome": "Neon Drift Circuit",
-        "genero": "Corrida",
-        "descricao": "Corridas noturnas em pistas urbanas com veículos personalizáveis.",
-        "marca": "Pixel Harbor",
-        "categorias": ["Corrida", "Arcade"],
-        "imagem_url": "https://images.example.com/gamehub/neon-drift-circuit.jpg",
-        "especificacoes": {"plataformas": ["PC", "Console"], "jogadores": "1-8", "modo_online": True},
+        "nome": "Hollow Knight",
+        "genero": "Metroidvania",
+        "descricao": "Explore Hallownest, um reino subterrâneo interconectado habitado por criaturas e mistérios.",
+        "marca": "Team Cherry",
+        "categorias": ["Ação", "Aventura", "Metroidvania"],
+        "imagem_path": "images/hollow-knight.jpg",
+        "especificacoes": {"plataformas": ["PC", "Nintendo Switch", "PlayStation", "Xbox"], "jogadores": "1"},
         "preco": 59.90,
-        "ano": 2022,
+        "ano": 2017,
     },
     {
         "_id": "game-003",
-        "nome": "Bastião das Estrelas",
-        "genero": "Estratégia",
-        "descricao": "Construa uma colônia espacial e administre recursos em sistemas distantes.",
-        "marca": "Aurora Forge",
-        "categorias": ["Estratégia", "Simulação"],
-        "imagem_url": "https://images.example.com/gamehub/bastiao-das-estrelas.jpg",
-        "especificacoes": {"plataformas": ["PC"], "jogadores": "1", "compatibilidade_controle": True},
+        "nome": "Minecraft",
+        "genero": "Sandbox",
+        "descricao": "Explore um mundo aberto, reúna recursos e construa no modo Sobrevivência ou Criativo.",
+        "marca": "Mojang Studios",
+        "categorias": ["Aventura", "Sandbox", "Sobrevivência"],
+        "imagem_path": "images/minecraft.jpeg",
+        "especificacoes": {"plataformas": ["PC", "Console", "Dispositivos móveis"], "jogadores": "Solo ou multiplayer"},
         "preco": 74.50,
-        "ano": 2024,
+        "ano": 2011,
     },
     {
         "_id": "game-004",
-        "nome": "Marés de Cobalto",
-        "genero": "Aventura",
-        "descricao": "Explore ilhas e ruínas submersas em uma jornada narrativa cooperativa.",
-        "marca": "Lume Interactive",
-        "categorias": ["Aventura", "Ação"],
-        "imagem_url": "https://images.example.com/gamehub/mares-de-cobalto.jpg",
-        "especificacoes": {"plataformas": ["PC", "Console"], "jogadores": "1-2", "modo_cooperativo": True},
+        "nome": "DOOM",
+        "genero": "FPS",
+        "descricao": "O clássico jogo de tiro em primeira pessoa da id Software, lançado originalmente em 1993.",
+        "marca": "id Software",
+        "categorias": ["Ação", "Clássico", "FPS"],
+        "imagem_path": "images/Doom_cover_art.jpg",
+        "especificacoes": {"plataformas": ["PC"], "jogadores": "Solo e multiplayer"},
         "preco": 109.90,
-        "ano": 2025,
+        "ano": 1993,
     },
     {
         "_id": "game-005",
-        "nome": "Crônicas do Vale Cinzento",
-        "genero": "RPG",
-        "descricao": "Reúna um grupo de viajantes e enfrente criaturas em uma região isolada.",
-        "marca": "Lume Interactive",
-        "categorias": ["RPG", "Estratégia"],
-        "imagem_url": "https://images.example.com/gamehub/cronicas-do-vale-cinzento.jpg",
-        "especificacoes": {"plataformas": ["PC"], "jogadores": "1", "classificacao": "12+"},
+        "nome": "Ori and the Blind Forest: Definitive Edition",
+        "genero": "Plataforma",
+        "descricao": "Uma aventura de plataforma sobre Ori, um espírito guardião que explora a floresta de Nibel.",
+        "marca": "Moon Studios",
+        "categorias": ["Aventura", "Plataforma"],
+        "imagem_path": "images/ori.jpg",
+        "especificacoes": {"plataformas": ["PC", "Xbox", "Nintendo Switch"], "jogadores": "1"},
         "preco": 99.00,
-        "ano": 2021,
+        "ano": 2016,
     },
     {
         "_id": "game-006",
-        "nome": "Oficina do Pequeno Cometa",
-        "genero": "Puzzle",
-        "descricao": "Resolva desafios de lógica para reparar uma estação de pesquisa orbital.",
-        "marca": "Pixel Harbor",
-        "categorias": ["Puzzle", "Casual"],
-        "imagem_url": "https://images.example.com/gamehub/oficina-do-pequeno-cometa.jpg",
-        "especificacoes": {"plataformas": ["PC", "Console"], "jogadores": "1", "acessibilidade": ["legendas", "modo daltônico"]},
+        "nome": "Hollow Knight: Silksong",
+        "genero": "Metroidvania",
+        "descricao": "Acompanhe Hornet em uma aventura por um reino desconhecido repleto de criaturas e desafios.",
+        "marca": "Team Cherry",
+        "categorias": ["Ação", "Aventura", "Metroidvania"],
+        "imagem_path": "images/silksong.webp",
+        "especificacoes": {"plataformas": ["PC", "Nintendo Switch", "PlayStation", "Xbox"], "jogadores": "1"},
         "preco": 34.90,
-        "ano": 2024,
+        "ano": 2025,
     },
 ]
 
@@ -101,10 +101,10 @@ HISTORIC_ORDERS = [
         "data_criacao": datetime(2025, 10, 4, 14, 30, tzinfo=timezone.utc),
         "status": "CONCLUIDO",
         "itens": [
-            {"jogo_id": "game-001", "nome": "Ecos de Arvandor", "quantidade": 1, "preco_unitario": 89.90},
-            {"jogo_id": "game-004", "nome": "Marés de Cobalto", "quantidade": 1, "preco_unitario": 109.90},
+            {"jogo_id": "game-002", "nome": "Hollow Knight", "quantidade": 1, "preco_unitario": 59.90},
+            {"jogo_id": "game-004", "nome": "DOOM", "quantidade": 1, "preco_unitario": 109.90},
         ],
-        "total": 199.80,
+        "total": 169.80,
     },
     {
         "_id": "seed-order-002",
@@ -113,10 +113,10 @@ HISTORIC_ORDERS = [
         "data_criacao": datetime(2025, 11, 12, 18, 0, tzinfo=timezone.utc),
         "status": "CONCLUIDO",
         "itens": [
-            {"jogo_id": "game-001", "nome": "Ecos de Arvandor", "quantidade": 1, "preco_unitario": 89.90},
-            {"jogo_id": "game-005", "nome": "Crônicas do Vale Cinzento", "quantidade": 1, "preco_unitario": 99.00},
+            {"jogo_id": "game-002", "nome": "Hollow Knight", "quantidade": 1, "preco_unitario": 59.90},
+            {"jogo_id": "game-006", "nome": "Hollow Knight: Silksong", "quantidade": 1, "preco_unitario": 34.90},
         ],
-        "total": 188.90,
+        "total": 94.80,
     },
     {
         "_id": "seed-order-003",
@@ -125,10 +125,10 @@ HISTORIC_ORDERS = [
         "data_criacao": datetime(2025, 12, 2, 11, 15, tzinfo=timezone.utc),
         "status": "CONCLUIDO",
         "itens": [
-            {"jogo_id": "game-001", "nome": "Ecos de Arvandor", "quantidade": 1, "preco_unitario": 89.90},
-            {"jogo_id": "game-003", "nome": "Bastião das Estrelas", "quantidade": 1, "preco_unitario": 74.50},
+            {"jogo_id": "game-002", "nome": "Hollow Knight", "quantidade": 1, "preco_unitario": 59.90},
+            {"jogo_id": "game-003", "nome": "Minecraft", "quantidade": 1, "preco_unitario": 74.50},
         ],
-        "total": 164.40,
+        "total": 134.40,
     },
     {
         "_id": "seed-order-004",
@@ -137,20 +137,20 @@ HISTORIC_ORDERS = [
         "data_criacao": datetime(2026, 1, 9, 16, 45, tzinfo=timezone.utc),
         "status": "CONCLUIDO",
         "itens": [
-            {"jogo_id": "game-002", "nome": "Neon Drift Circuit", "quantidade": 1, "preco_unitario": 59.90},
-            {"jogo_id": "game-006", "nome": "Oficina do Pequeno Cometa", "quantidade": 1, "preco_unitario": 34.90},
+            {"jogo_id": "game-005", "nome": "Ori and the Blind Forest: Definitive Edition", "quantidade": 1, "preco_unitario": 99.00},
+            {"jogo_id": "game-004", "nome": "DOOM", "quantidade": 1, "preco_unitario": 109.90},
         ],
-        "total": 94.80,
+        "total": 208.90,
     },
 ]
 
 RATINGS = [
-    {"cliente_id": "customer-001", "jogo_id": "game-001", "nota": 5},
+    {"cliente_id": "customer-001", "jogo_id": "game-002", "nota": 5},
     {"cliente_id": "customer-001", "jogo_id": "game-004", "nota": 4},
-    {"cliente_id": "customer-002", "jogo_id": "game-001", "nota": 4},
-    {"cliente_id": "customer-002", "jogo_id": "game-005", "nota": 5},
-    {"cliente_id": "customer-002", "jogo_id": "game-002", "nota": 3},
-    {"cliente_id": "customer-003", "jogo_id": "game-001", "nota": 5},
+    {"cliente_id": "customer-002", "jogo_id": "game-002", "nota": 4},
+    {"cliente_id": "customer-002", "jogo_id": "game-006", "nota": 5},
+    {"cliente_id": "customer-002", "jogo_id": "game-004", "nota": 3},
+    {"cliente_id": "customer-003", "jogo_id": "game-002", "nota": 5},
     {"cliente_id": "customer-003", "jogo_id": "game-003", "nota": 4},
 ]
 
@@ -198,6 +198,19 @@ def load_neo4j() -> dict[str, int]:
         ).consume()
 
         session.run(
+            "MATCH (:Produto)-[r:PERTENCE_A]->(:Categoria) DELETE r"
+        ).consume()
+        category_names = sorted({name for game in GAMES for name in game["categorias"]})
+        session.run(
+            """
+            MATCH (category:Categoria)
+            WHERE NOT category.nome IN $category_names
+            DETACH DELETE category
+            """,
+            category_names=category_names,
+        ).consume()
+
+        session.run(
             """
             UNWIND $games AS game
             MERGE (p:Produto {id: game.id})
@@ -213,6 +226,14 @@ def load_neo4j() -> dict[str, int]:
             ],
         ).consume()
 
+        session.run(
+            """
+            MATCH ()-[r:COMPROU]->()
+            WHERE r.checkout_id IN $checkout_ids
+            DELETE r
+            """,
+            checkout_ids=[order["checkout_id"] for order in HISTORIC_ORDERS],
+        ).consume()
         session.run(
             """
             UNWIND $orders AS order
@@ -233,6 +254,14 @@ def load_neo4j() -> dict[str, int]:
             ],
         ).consume()
 
+        session.run(
+            """
+            MATCH (c:Cliente)-[r:AVALIOU]->()
+            WHERE c.id IN $client_ids
+            DELETE r
+            """,
+            client_ids=[client["_id"] for client in CLIENTS],
+        ).consume()
         session.run(
             """
             UNWIND $ratings AS rating
@@ -270,7 +299,7 @@ def load_redis_cache() -> int:
 
 
 def main() -> None:
-    """Executa a carga sem acessar ou preencher o Redis."""
+    """Executa a carga dos bancos e popula apenas o cache do catálogo no Redis."""
     checks = (("MongoDB", check_mongodb), ("Redis", check_redis), ("Neo4j", check_neo4j))
     failed = False
     for name, check in checks:

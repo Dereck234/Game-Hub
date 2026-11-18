@@ -53,12 +53,12 @@ Campos:
 - descricao
 - marca
 - categorias
-- imagem_url
+- imagem_path
 - especificacoes (objeto JSON flexível)
 - preco
 - ano
 
-`imagem_url` referencia uma imagem externa; não há upload de arquivos.
+`imagem_path` armazena o caminho relativo de uma imagem local dentro de `images/`. A interface resolve o caminho a partir da raiz do projeto; não há upload de arquivos nem dependência de URLs externas.
 
 ### Coleção pedidos
 

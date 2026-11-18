@@ -48,3 +48,5 @@ Se outro serviço MongoDB do Windows estiver usando `127.0.0.1:27017`, configure
 O seed pode ser executado novamente: atualiza os documentos e nós demonstrativos por identificadores estáveis e carrega no Redis somente cópias dos produtos do catálogo com TTL de 60 segundos. Não cria carrinhos ou tokens.
 
 O checkout não processa pagamentos. Ele grava o pedido pendente no MongoDB, atualiza as compras no Neo4j de forma idempotente, marca o pedido como concluído e só então limpa o carrinho. Uma falha intermediária preserva o pedido pendente e o carrinho para retomada.
+
+As capas dos seis jogos ficam em `images/`. O seed grava caminhos relativos no campo `imagem_path`, e a interface usa esses arquivos locais no catálogo, no carrinho, nas recomendações e no checkout.

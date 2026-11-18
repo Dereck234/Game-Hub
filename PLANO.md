@@ -84,6 +84,7 @@ Implementar:
 - Busca por nome.
 - Filtro por gênero.
 - Exibição de preço e informações.
+- Exibição das imagens locais associadas aos jogos.
 - Cache individual de produtos no Redis com TTL de 60 segundos.
 
 O cache individual atende à estratégia de cache do MVP. Ele não contabiliza acessos nem prioriza produtos por popularidade.
